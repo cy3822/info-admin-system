@@ -1,0 +1,1 @@
+export default function Sidebar(){return <div className='p-4 bg-gray-100 h-full'>Sidebar</div>}

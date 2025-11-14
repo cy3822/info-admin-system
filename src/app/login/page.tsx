@@ -2,10 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import createClient from "@/lib/supabaseClient";
+import { supabase } from "@/lib/supabaseClient";
 
 export default function LoginPage() {
-  const supabase = createClient();
   const router = useRouter();
 
   const [email, setEmail] = useState("");
@@ -32,18 +31,17 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold text-center mb-6">登入系統</h1>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
+      <div className="bg-white p-6 rounded shadow-md w-full max-w-sm">
+        <h1 className="text-2xl font-semibold text-center mb-4">登入系統</h1>
 
         <div className="mb-4">
-          <label className="block mb-1 font-medium">帳號（Email）</label>
+          <label className="block mb-1 font-medium">電子郵件</label>
           <input
             type="email"
             className="w-full border rounded px-3 py-2"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="輸入 email"
           />
         </div>
 
@@ -54,12 +52,11 @@ export default function LoginPage() {
             className="w-full border rounded px-3 py-2"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="輸入密碼"
           />
         </div>
 
         {errorMsg && (
-          <p className="text-red-500 text-sm mb-3">{errorMsg}</p>
+          <p className="text-red-600 text-sm mb-3">{errorMsg}</p>
         )}
 
         <button

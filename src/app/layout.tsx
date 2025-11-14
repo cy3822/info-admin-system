@@ -1,7 +1,11 @@
-
 import "./globals.css";
-export const metadata = { title: "Info Admin System" };
-export default function RootLayout({ children }) {
+import type { ReactNode } from "react";
+
+export const metadata = {
+  title: "Info Admin System",
+};
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>{children}</body>
